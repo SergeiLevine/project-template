@@ -1,0 +1,101 @@
+SDS - Software Design Specification
+
+1. Main Product Features & Capabilities
+
+Introduction Document Goals
+
+According to the use cases and the user stories we described on the SRS page before, we'll build a guideline scheme for our project.
+
+This Document will describe the system architecture.
+
+The goal of design page are:
+
+Preparation for the realization of our software.
+Help us to split the tasks of the implementation between team members.
+Checking correctness of software design.
+Save coding cumbersome
+Realizing preparation clearly code
+Focus on the developments we should think about in advance, before we start coding.
+In this document you will find several diagrams: Deployment diagram, CRC Cards, Class diagram and state chart.
+
+Capabilities:
+
+Main ability	Description	Risks
+1	Distribution	Using distributing platforms such as Firebase. This is the platform that we will use during the development, it can be a different one than what the organization will want in the future.	High
+2	Sign-in	the administrator can sign in to the service using username and password that we provide, and action	High
+3	Add permissions to the system	The administrator can add permission to sync the app with the Facebook / Google calendar page of an organization that wants to.	Medium
+4	Deleting permission from system	The administrator can download permission to sync the app with a Facebook / Google calendar page for an organization.	Medium
+5	Add to recommendations list	The administrator can add a recommendation to the list of recommendations published in the app.	Medium
+6	Deletes a recommendation for the list of recommendations	The administrator can delete a recommendation from the list of recommended recommendations in the app.	Medium
+7	Add event	The Facebook / Google Calendar Manager of an organization adds an event to the organization's calendar that syncs with the app, if authorized.	Medium
+8	Using App	User can view events synced with the app, switch from monthly / weekly / daily view mode, select an organization's event view, and view the list of recommendations.	Low
+Related Documentation
+
+SDS Review summary 
+team
+
+2. UML Modeling
+
+Class Diagrams: will be presented later on, after writing first code.
+
+Deployment Diagram: Description of visualize the topology of the hardware and devices of system where the software components are deployed. 
+
+CRC Cards: show the class responsibilities and other classs connection.
+
+
+
+Class Diagrams: represent the object oriented view and classs asssociations of a system.
+
+State Charts: Describing behaviour inside the application.
+Behaviour
+
+Display Behaviour
+
+
+
+Users Behaviour
+
+
+
+3. Persistence
+
+All the data will be saved on a SQL DataBase:
+
+4. Non-functional Requirements:
+The application will (in a future version) display a diffrent icon for each type of searcher: medic , climbing specialist , etc...
+The application will save navigational data after each event for analysis or police investigation.
+The application will save for each volunteer personal information including name and phone number.
+The administrator will have a seperate user name and password allowing access to all high level features.
+The user interface will be as simple and user friendly as possible..
+
+5. Risk Management
+
+Risk	Severity	Probability	Response
+1	Unknown development environment	Medium	2	1. Watching tutorials on Youtube.
+2. Formal materials on the internet. 
+3. Consulting Dr. Yagel and Yaacov.
+2	Low performance - server dealing with lots of requests	High	1	1. Using firebase service as a stable platform.
+3	Unsatisfied Client	Low	1	1. Monthly meeting and monitor our progress.
+4	Estimations	High	1	1. Pre-planned schedule
+2. Efficient time use
+3. assigning tasks according member's program abilities.
+4. Set goals and milestones.
+5	Inexperienced team	Medium	2	1. Consult Dr. Yagel, Yaacov and Hadas.
+2. Share knowledge with other friends in class.
+6	Changing in client's demands	Medium	1	1. Pre coordination in changes
+2. Write the client's requierments and let the client review it. After it's review, consider decline client's changes.
+7	Disproportional requirements	High	1	1. Consider client's requierments and if needed decline.
+6. User Manual
+
+User manual
+
+7. Initial Test Plan
+
+This is an initial test plan. This plan will be change through the development process.
+
+Accessing from different browsers .
+Predfined Facebook page for test use .
+Choosing the program language and the IDE to work with .
+Choose a testing envoirment for the Calendar API .
+Username/password for adminstrator stored in Firebase database.
+© Copyright by Avi Cohen, Omri Terem, Meitar Shukrun, Sagi Marciano, Ze'ev Melumian.

@@ -1,0 +1,12 @@
+
+<!-- this creates a google map on the page with the given lat/lng from -->
+<!-- the component as the initial center of the map: -->
+<button (click)="drawPolygon()">Draw</button>
+<sebm-google-map [latitude]="lat" [longitude]="lng">
+  <!--<sebm-google-map-marker [latitude]="lat" [longitude]="lng" [title]="abc" [label]="oogabooga"></sebm-google-map-marker>-->
+<!--<app-marker [lng]="lng" [lat]="lat" [name]="'B'" ></app-marker>-->
+<app-marker *ngFor="let k of markerArray" [lng]="k.lng" [lat]="k.lat" [name]="k.name"></app-marker>
+<app-polyline *ngFor="let i of markerArray" [lat1]="i.lat" [lat2]="i.prevLat" [lng1]="i.lng" [lng2]="i.prevLng"></app-polyline>
+<!--<app-polygon [paths]="paths"></app-polygon>-->
+<app-polygon  [paths]="paths" ></app-polygon>
+<!--<app-nav-item *ngFor="let k of arr" [item]="k"></app-nav-item>-->

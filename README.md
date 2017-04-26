@@ -1,10 +1,17 @@
-***RESCUE***
-
-WE WILL FIND YOU AND WE WILL **RESCUE** YOU!
+## Megilot Search&Rescue
 
 
+The purpose of this project is to create a system that will assist in the rescue of lost individuals in the megilot area.
+Our goal is to track the coordiantes of the volnteers in the field and provide a visual represenation of them to the HQ, allowing for faster desicion making and a clearer picture of the operation.
 
-![project logo (this one for is taken from basecamp - a project management service)](https://upload.wikimedia.org/wikipedia/he/6/68/%D7%99%D7%97%D7%99%D7%93%D7%AA_%D7%97%D7%99%D7%9C%D7%95%D7%A5_%D7%9E%D7%92%D7%99%D7%9C%D7%95%D7%AA_%D7%99%D7%9D_%D7%94%D7%9E%D7%9C%D7%97.jpg)
+*Copyright Owner The Megilot Search&Rescue Team 2017!*
+
+<img src="https://upload.wikimedia.org/wikipedia/he/6/68/%D7%99%D7%97%D7%99%D7%93%D7%AA_%D7%97%D7%99%D7%9C%D7%95%D7%A5_%D7%9E%D7%92%D7%99%D7%9C%D7%95%D7%AA_%D7%99%D7%9D_%D7%94%D7%9E%D7%9C%D7%97.jpg" width="650" height="550">
+
+
+
+
+
 
 
 
@@ -23,22 +30,12 @@ This project is developed as part of the requirements for a [software engineerin
 
 ## Project documents
 
-* [Home](https://github.com/SergeiLevine/Rescue/wiki)
-* [Team](https://github.com/SergeiLevine/Rescue/wiki/Team)
-* [Project Inception](https://github.com/SergeiLevine/Rescue/wiki/Planing)
-* [User Manual](Empty)
 
-
-
-
-
-
-
-
-
-
-
-
+=======
+- [Home](https://github.com/SergeiLevine/Rescue/wiki)
+- [User Manual](Empty)
+- [Team](https://github.com/SergeiLevine/Rescue/wiki/Team)
+- [Project Inception](https://github.com/SergeiLevine/Rescue/wiki/Project-Inception%5CPlanning-Page)
 
 
 
@@ -47,7 +44,7 @@ This project is developed as part of the requirements for a [software engineerin
 
 
 ### Iteration Pages
-- [Iteration 0 - ZFR](../../wiki/iter0-zfr)
+- [Iteration 0 - ZFR](https://github.com/SergeiLevine/Rescue/wiki/ZFR)
 - [Iteration 1 - MVP]()
 - [Iteration 2 - Feature X]()
 - [Iteration 3 - Feature Y]()
