@@ -30,10 +30,13 @@ This project is developed as part of the requirements for a [software engineerin
 
 ## Project documents
 
+
+=======
 - [Home](https://github.com/SergeiLevine/Rescue/wiki)
 - [User Manual](Empty)
 - [Team](https://github.com/SergeiLevine/Rescue/wiki/Team)
 - [Project Inception](https://github.com/SergeiLevine/Rescue/wiki/Project-Inception%5CPlanning-Page)
+
 
 
 ## Please visit our [live application](https://demo.reactstarterkit.com/)
