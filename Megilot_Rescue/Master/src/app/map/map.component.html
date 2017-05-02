@@ -5,8 +5,8 @@
 <input #l>
 <input #t>
 <button (click)="drawPolygon(name.value,l.value,t.value)">Draw</button>
-
-<sebm-google-map [latitude]="lat" [longitude]="lng" (mapClick)="mapClicked($event)">
+<label #realData>
+<sebm-google-map [styles]="Satellite" [latitude]="lat" [longitude]="lng" (mapClick)="mapClicked($event)">
   <!--<sebm-google-map-marker [latitude]="lat" [longitude]="lng" [title]="abc" [label]="oogabooga"></sebm-google-map-marker>-->
 <!--<app-marker [lng]="lng" [lat]="lat" [name]="'B'" ></app-marker>-->
 <app-marker *ngFor="let k of markerArray" [lng]="k.lng" [lat]="k.lat" [name]="k.name"></app-marker>

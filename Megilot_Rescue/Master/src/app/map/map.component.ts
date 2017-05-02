@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Injectable } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
+import {Http, Response} from '@angular/http';
 import { SebmGoogleMap, SebmGoogleMapPolygon, LatLngLiteral,SebmGoogleMapPolyline, SebmGoogleMapPolylinePoint,} 
 from 'angular2-google-maps/core';
 
@@ -13,6 +14,8 @@ export class MapComponent implements OnInit {
   lat: number = 31.7683;
   lng: number = 35.2137;
   drawble:boolean=false;
+  realData;
+
   prevPostion=[{lat:32.7693,lng:35.2147},{lat:32.8687,lng:35.3139},{lat:32.6684,lng:35.1135}];
   markerArray=[{name:'A',lat:	31.784468,lng:35.237017,prevLat:32.7693,prevLng:35.2147},
   {name:'B',lat:31.771918,lng:35.239248,prevLat:32.8687,prevLng:35.3139},
@@ -59,10 +62,21 @@ export class MapComponent implements OnInit {
    
     
   }
-  constructor() { }
+  constructor(private http:Http) { 
+    
+    
+
+  }
   
   ngOnInit() {
-    
+    this.getData();
   }
+  _postservice;
+  outputs;
+  getData(){
+      this.http.get('http://819b12e0.ngrok.io/send_data.php').subscribe(res => this.realData = res.json());
+      console.log(this.realData);
+    }
+    
 
 }
