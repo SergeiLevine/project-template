@@ -12,6 +12,8 @@ import { MarkerComponent } from './marker/marker.component';
 import { PolylineComponent } from './polyline/polyline.component';
 import { PolygonComponent } from './polygon/polygon.component';
 import { LoginComponent } from './login/login.component';
+import { JpipePipe } from './jpipe.pipe';
+import {MarkerService} from './map/marker.service';
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import { LoginComponent } from './login/login.component';
     MarkerComponent,
     PolylineComponent,
     PolygonComponent,
-    LoginComponent
+    LoginComponent,
+    JpipePipe
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,7 @@ import { LoginComponent } from './login/login.component';
     })
 
   ],
-  providers: [],
+  providers: [MarkerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
