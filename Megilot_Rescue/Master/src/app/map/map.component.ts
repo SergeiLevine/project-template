@@ -51,11 +51,8 @@ export class MapComponent implements OnInit {
    }
 
   drawPolygon(n,l,t){
-    var temp={user:String,latitude:String,longitude:String};
+    //var temp={user:String,latitude:String,longitude:String};
     this.drawble=!this.drawble;
-    console.log(this.realData);
-    
-    
   }
   toMarker(r){
     var marker={
@@ -103,7 +100,7 @@ export class MapComponent implements OnInit {
     }
 
     get data(){
-      console.log('in data')
+      //console.log('in data')
       for(let d of this.realData){
         d.longitude = parseFloat(d.longitude);
         d.latitude = parseFloat(d.latitude);
