@@ -17,7 +17,7 @@ import {MarkerService} from './map/marker.service';
 import { PathComponent } from './path/path.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { EventMenuComponent } from './event-menu/event-menu.component';
-import {ImageUploadComponent} from './angular2-image-upload';
+import {ImageUploadModule} from 'angular2-image-upload';
 
 
 const appRoutes: Routes=[
