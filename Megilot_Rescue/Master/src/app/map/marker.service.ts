@@ -11,7 +11,7 @@ export class MarkerService {
     }
 
     public getMarker() {
-       var postsUrl = 'http://819b12e0.ngrok.io/send_data.php';
+       var postsUrl = 'B34bf07b.ngrok.io/send_data.php';
        console.log(postsUrl);
         return this.http.get(postsUrl).map(res => res.json());
             

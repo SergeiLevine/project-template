@@ -1,3 +1,5 @@
-<!--<app-login *ngIf="!auth"></app-login>-->
-<!--<button (click)="login()" >Submit</button>-->
-<app-map *ngIf="true"></app-map>
+<app-login *ngIf="!auth"></app-login>
+<button *ngIf="!auth" (click)="login()" >Submit</button>
+<app-main-menu *ngIf="auth"></app-main-menu>
+<button *ngIf="auth" (click)="logout()" >Logout</button>
+<app-map *ngIf="eventStarted"></app-map>

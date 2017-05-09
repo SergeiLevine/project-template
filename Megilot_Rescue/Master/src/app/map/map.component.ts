@@ -22,18 +22,14 @@ export class MapComponent implements OnInit {
   private markerSubscription: AnonymousSubscription;
   realData=[];
   realCords=[];
-  prevPostion=[{lat:32.7693,lng:35.2147},{lat:32.8687,lng:35.3139},{lat:32.6684,lng:35.1135}];
-  markerArray=[{name:'A',lat:	31.784468,lng:35.237017,prevLat:32.7693,prevLng:35.2147},
-  {name:'B',lat:31.771918,lng:35.239248,prevLat:32.8687,prevLng:35.3139},
-  {name:'C',lat:31.774107 , lng:35.252466,prevLat:32.6684,prevLng:35.1135}];
+  url='http://b34bf07b.ngrok.io/send_data.php';
+  pathArray=[];
   
   paths: Array<LatLngLiteral> = [
-    /*{ lat: 	31.871959,  lng: 35.217018 },
-    { lat: 31.731259,  lng: 35.211018  },
-    { lat: 31.731250,  lng: 35.301018 }*/
-    
+    //{ lat: 	null,  lng: null },
+   
   ]
-  // Nesting paths will create a hole where they overlap;
+  
   
    mapClicked(e){
      if (this.drawble==false){
@@ -82,29 +78,27 @@ export class MapComponent implements OnInit {
   _postservice;
   outputs;
   getData(){
-      this.http.get('http://bdc6b1e1.ngrok.io/send_data.php').subscribe(res =>{ 
+      this.http.get(this.url).subscribe(res =>{ 
       this.realData = res.json();
       //this.refreshData();
-      console.log(this.realData)
     });
       
     }
-    refreshData(){
-        this.markerSubscription = MarkerService.prototype.getMarker().subscribe(realData=> {
-        this.realData = realData;
-        this.subscribeToData();
-    });
-    }
-    subscribeToData(){
-      this.timerSubscription= Observable.timer(5000).first().subscribe(() => this.refreshData());
-    }
-
+   
     get data(){
       //console.log('in data')
-      for(let d of this.realData){
+      var i=0;
+      
+      for(let d of this.realData){ 
+        
         d.longitude = parseFloat(d.longitude);
         d.latitude = parseFloat(d.latitude);
+        this.pathArray.push({lat:d.latitude,lng:d.longitude});
+       
       }
+
+      
+      
       return this.realData;
     }
 
