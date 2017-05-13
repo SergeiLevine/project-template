@@ -1,0 +1,12 @@
+<form>
+ שם אירוע<br>
+  <input type="text" name="name"><br>
+  תיאור אירוע<br>
+  <textarea  name="description" class='description'  rows="4" cols="50"></textarea>
+  <input type="date" name="date">
+  <form action="upload.php" method="post" enctype="multipart/form-data">
+  <input type="file" name="fileToUpload" id="fileToUpload">
+  <input type="submit" value="Upload Image" name="submit">
+</form>
+<nav><a routerLink ='/map' routerLinkActive="active">Map</a></nav>
+<router-outlet></router-outlet>

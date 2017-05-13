@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Input} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +8,16 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app works!';
   auth=false;
+  eventStarted=false;
+  logout(){
+    this.auth=!this.auth;
+  }
+  startEvent(){
+
+  }
   login(event){
-    console.log("Login succesful")
+    
+    console.log("Login succesful");
     this.auth=true;
   }
 }

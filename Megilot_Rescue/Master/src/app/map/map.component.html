@@ -1,18 +1,17 @@
 
 <!-- this creates a google map on the page with the given lat/lng from -->
-<!-- the component as the initial center of the map: -->
+<!-- the component as the initial center of the map:-->
 <input #name>
 <input #l>
 <input #t>
 <button (click)="drawPolygon(name.value,l.value,t.value)">Draw</button>
-<label #realData>
-<sebm-google-map [styles]="Satellite" [latitude]="lat" [longitude]="lng" (mapClick)="mapClicked($event)">
+<sebm-google-map [styles]="satellite" [latitude]="lat" [longitude]="lng" [streetViewControl]="true"
+ (mapClick)="mapClicked($event)">
   <!--<sebm-google-map-marker [latitude]="lat" [longitude]="lng" [title]="abc" [label]="oogabooga"></sebm-google-map-marker>-->
 <!--<app-marker [lng]="lng" [lat]="lat" [name]="'B'" ></app-marker>-->
-<app-marker *ngFor="let k of markerArray" [lng]="k.lng" [lat]="k.lat" [name]="k.name"></app-marker>
-<!--<app-polyline *ngFor="let i of markerArray" [lat1]="i.lat" [lat2]="i.prevLat" [lng1]="i.lng" [lng2]="i.prevLng"></app-polyline>-->
-<!--<app-polygon [paths]="paths"></app-polygon>-->
-<!--<app-polygon  [paths]="paths" ></app-polygon>-->
-<sebm-map-polygon [paths]="paths" [editable]="true" [visible]="show" [fillOpacity]="0">
-</sebm-map-polygon>
+<app-marker *ngFor="let k of data" [lng]="k.longitude" [lat]="k.latitude" [name]="k.user"></app-marker>
+
+
+<sebm-map-polygon [paths]="paths" [editable]="true" [visible]="show" [fillOpacity]="0"></sebm-map-polygon>
 <!--<app-nav-item *ngFor="let k of arr" [item]="k"></app-nav-item>-->
+

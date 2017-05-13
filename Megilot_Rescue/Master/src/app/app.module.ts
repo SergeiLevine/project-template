@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
+import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { NavItemComponent } from './nav-item/nav-item.component';
@@ -12,7 +12,20 @@ import { MarkerComponent } from './marker/marker.component';
 import { PolylineComponent } from './polyline/polyline.component';
 import { PolygonComponent } from './polygon/polygon.component';
 import { LoginComponent } from './login/login.component';
+import { JpipePipe } from './jpipe.pipe';
+import {MarkerService} from './map/marker.service';
+import { PathComponent } from './path/path.component';
+import { MainMenuComponent } from './main-menu/main-menu.component';
+import { EventMenuComponent } from './event-menu/event-menu.component';
+import {ImageUploadModule} from 'angular2-image-upload';
 
+
+const appRoutes: Routes=[
+  {path:'map',component:MapComponent},
+  {path:'menu',component:MainMenuComponent},
+  {path:'event-menu',component:EventMenuComponent}
+
+]
 
 @NgModule({
   declarations: [
@@ -23,9 +36,16 @@ import { LoginComponent } from './login/login.component';
     MarkerComponent,
     PolylineComponent,
     PolygonComponent,
-    LoginComponent
+    LoginComponent,
+    JpipePipe,
+    PathComponent,
+    MainMenuComponent,
+    EventMenuComponent,
+    
   ],
   imports: [
+    RouterModule.forRoot(appRoutes),
+    ImageUploadModule.forRoot(),
     BrowserModule,
     FormsModule,
     HttpModule,
@@ -34,7 +54,7 @@ import { LoginComponent } from './login/login.component';
     })
 
   ],
-  providers: [],
+  providers: [MarkerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
