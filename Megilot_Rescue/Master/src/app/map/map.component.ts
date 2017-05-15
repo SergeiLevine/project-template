@@ -17,9 +17,8 @@ export class MapComponent implements OnInit {
   title: string = 'My first angular2-google-maps project';
   lat: number = 31.7683;
   lng: number = 35.2137;
+  areaCount: number=0;
   drawble:boolean=false;
-  private timerSubscription: AnonymousSubscription;
-  private markerSubscription: AnonymousSubscription;
 
 
   realData=[];
@@ -28,25 +27,33 @@ export class MapComponent implements OnInit {
   pathArray=[[{user:'A',lat:30,lng:30},{user:'A',lat:31,lng:31},{user:'A',lat:32,lng:32}],
   [{user:'B',lat:33,lng:33},{user:'B',lat:34,lng:34},{user:'B',lat:34,lng:34}]];
   
-  paths: Array<LatLngLiteral> = [
-    //{ lat: 	null,  lng: null },
+  /*paths: Array<LatLngLiteral> = [
+    
    
-  ]
-  
+  ]*/
+  paths=[];
   
    mapClicked(e){
      if (this.drawble==false){
        return;
      }
-     
      //var temp=this.paths;
      var temp=[];
-     for (let i of this.paths){
+     /*for (let i of this.paths){
        temp.push(i);
-     }
-     temp.push({lat:parseFloat(e.coords.lat),lng:parseFloat(e.coords.lng)});
-     this.paths=temp;
-     
+     }*/
+    console.log(this.paths.length);
+    if (this.paths.length>0 && this.paths[this.areaCount-1]!=undefined){
+       console.log(this.paths[this.areaCount-1]);
+       for (let i of this.paths[this.areaCount-1]){
+        
+        temp.push(i);
+       }
+    }  
+    temp.push({lat:parseFloat(e.coords.lat),lng:parseFloat(e.coords.lng)});
+    // this.paths=temp;
+    this.paths[this.areaCount-1]=temp;
+    //console.log(this.paths);
    }
   createPath(k){
     
@@ -81,6 +88,8 @@ export class MapComponent implements OnInit {
   } 
   drawPolygon(n,l,t){
     //var temp={user:String,latitude:String,longitude:String};
+    if (this.drawble==false)
+      this.areaCount++;
     this.drawble=!this.drawble;
   }
   toMarker(r){
