@@ -10,9 +10,10 @@ $database = "megilot_database";
 
 $conn = mysqli_connect($dbhost,$dbuser,$dbpass,$database) or die($dberror1);
 
-$query = "SELECT latitude, longitude, FROM coordinates WHERE *";
+$query = "SELECT * FROM coordinates";
+
 $fetch_sql_query = mysqli_query($conn,$query)  or die ("Could not find user");
-	echo $fetch_sql_query;
+
 	while($row = mysqli_fetch_assoc($fetch_sql_query))
 	{
 	echo $row['latitude'];
