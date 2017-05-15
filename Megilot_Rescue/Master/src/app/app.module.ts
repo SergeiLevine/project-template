@@ -11,19 +11,27 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
 import { MarkerComponent } from './marker/marker.component';
 import { PolylineComponent } from './polyline/polyline.component';
 import { PolygonComponent } from './polygon/polygon.component';
-import { LoginComponent } from './login/login.component';
-import { JpipePipe } from './jpipe.pipe';
 import {MarkerService} from './map/marker.service';
 import { PathComponent } from './path/path.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { EventMenuComponent } from './event-menu/event-menu.component';
 import {ImageUploadModule} from 'angular2-image-upload';
-
+import { AuthGuard } from './_guards/auth.guard';
+import { AlertService, AuthenticationService, UserService } from './_services/index';
+import { LoginComponent } from './login';
+import { AppConfig } from './app.config';
+import { AlertComponent } from './alert/alert.component';
+import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes=[
+ // { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   {path:'map',component:MapComponent},
   {path:'menu',component:MainMenuComponent},
-  {path:'event-menu',component:EventMenuComponent}
+  {path:'event-menu',component:EventMenuComponent},
+  {path: 'login', component: LoginComponent },
+
+    // otherwise redirect to home
+  { path: '**', redirectTo: '' }
 
 ]
 
@@ -37,11 +45,12 @@ const appRoutes: Routes=[
     PolylineComponent,
     PolygonComponent,
     LoginComponent,
-    JpipePipe,
     PathComponent,
     MainMenuComponent,
     EventMenuComponent,
-    
+    LoginComponent,
+    AlertComponent,
+    HomeComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -54,7 +63,12 @@ const appRoutes: Routes=[
     })
 
   ],
-  providers: [MarkerService],
+  providers: [
+        AppConfig,
+        AuthGuard,
+        AlertService,
+        AuthenticationService,
+        UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -20,10 +20,13 @@ export class MapComponent implements OnInit {
   drawble:boolean=false;
   private timerSubscription: AnonymousSubscription;
   private markerSubscription: AnonymousSubscription;
+
+
   realData=[];
   realCords=[];
-  url='http://b34bf07b.ngrok.io/send_data.php';
-  pathArray=[];
+  url='http://5b889434.ngrok.io/send_data.php';
+  pathArray=[[{user:'A',lat:30,lng:30},{user:'A',lat:31,lng:31},{user:'A',lat:32,lng:32}],
+  [{user:'B',lat:33,lng:33},{user:'B',lat:34,lng:34},{user:'B',lat:34,lng:34}]];
   
   paths: Array<LatLngLiteral> = [
     //{ lat: 	null,  lng: null },
@@ -35,7 +38,7 @@ export class MapComponent implements OnInit {
      if (this.drawble==false){
        return;
      }
-     console.log(e);
+     
      //var temp=this.paths;
      var temp=[];
      for (let i of this.paths){
@@ -43,9 +46,39 @@ export class MapComponent implements OnInit {
      }
      temp.push({lat:parseFloat(e.coords.lat),lng:parseFloat(e.coords.lng)});
      this.paths=temp;
-     console.log(this.paths);
+     
    }
+  createPath(k){
+    
+    var newpath=[];
+    var j=0;
+    for (var i=0;i<k.length;i++){
+      var n;
+      if (j==0){
+        n=({lat1:k[j].lat,lat2:k[j].lat,lng1:k[j].lng,lng2:k[j].lng});
+      }
+      else{
+        n=({lat1:k[j-1].lat,lat2:k[j].lat,lng1:k[j-1].lng,lng2:k[j].lng});
+      }
+     
+      newpath[j]=n;
+      
+      j++;
 
+    }
+    console.log(newpath);
+    return newpath;
+  }
+  
+  getLat(k){
+    return (k[k.length-1].lat);
+  } 
+  getLng(k){
+    return (k[k.length-1].lng);
+  } 
+   getUser(k){
+    return (k[k.length-1].user);
+  } 
   drawPolygon(n,l,t){
     //var temp={user:String,latitude:String,longitude:String};
     this.drawble=!this.drawble;
@@ -66,7 +99,6 @@ export class MapComponent implements OnInit {
       this.realCords.push(k);
     }
     this.realData=this.realCords;
-    console.log(this.realCords);
     
 
   }
@@ -93,7 +125,7 @@ export class MapComponent implements OnInit {
         
         d.longitude = parseFloat(d.longitude);
         d.latitude = parseFloat(d.latitude);
-        this.pathArray.push({lat:d.latitude,lng:d.longitude});
+        //this.pathArray.push({lat:d.latitude,lng:d.longitude});
        
       }
 
