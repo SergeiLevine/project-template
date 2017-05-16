@@ -30,7 +30,7 @@ import { AppConfig } from './app.config';
 
 
 const appRoutes: Routes=[
- // { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   {path:'map',component:MapComponent},
   {path:'menu',component:MainMenuComponent},
   {path:'event-menu',component:EventMenuComponent},

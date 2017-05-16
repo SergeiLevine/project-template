@@ -19,7 +19,7 @@ export class MapComponent implements OnInit {
   lng: number = 35.2137;
   areaCount: number = 0;
   drawble: boolean = false;
-
+  drawTex: string ='draw';
 
   realData = [];
   realCords = [];
@@ -76,7 +76,7 @@ export class MapComponent implements OnInit {
       j++;
 
     }
-    console.log(newpath);
+    //console.log(newpath);
     return newpath;
   }
 
@@ -91,8 +91,13 @@ export class MapComponent implements OnInit {
   }
   drawPolygon(n, l, t) {
     //var temp={user:String,latitude:String,longitude:String};
-    if (this.drawble == false)
+    if (this.drawble == false){
+      this.drawTex='Complete'
       this.areaCount++;
+    }
+    else {
+      this.drawTex='Draw';
+    }
     this.drawble = !this.drawble;
   }
   toMarker(r) {

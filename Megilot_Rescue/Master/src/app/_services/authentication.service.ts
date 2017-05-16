@@ -9,19 +9,24 @@ import { AppConfig } from '../app.config';
 export class AuthenticationService {
     constructor(private http: Http, private config: AppConfig) { }
 
-    login(username: string, password: string) {
+    login(user: string, pass: string) {
         
-        console.log(this.config.apiUrl);
-        return this.http.post('', { username: username, password: password}).map((response: Response) => {
-                // login successful if there's a jwt token in the response
-                let user = response.json();
-                if (user && user.token) {
+        //console.log(this.config.apiUrl);
+        //this.http.post(this.config.apiUrl, { username: username, password: password});
+        
+        return this.http.post(this.config.apiUrl, {username:user,password:pass}).map((r: Response) => {
+                
+                var u=r.json();
+                
+                //console.log(user);
+                if (u == 'admin logged in') {
+                    console.log('logged in')
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
                     localStorage.setItem('currentUser', JSON.stringify(user));
-                    console.log("after post");
                 }
+                
          });
-           
+
     }
 
     logout() {

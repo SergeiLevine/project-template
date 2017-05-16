@@ -12,7 +12,7 @@ import { AlertService, AuthenticationService } from '../_services/index';
 export class LoginComponent implements OnInit {
     model: any = {};
     loading = false;
-    returnUrl: string;
+    returnUrl: string='menu';
 
     constructor(
         private route: ActivatedRoute,
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
 
         // get return url from route parameters or default to '/'
         
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+        this.returnUrl = this.route.snapshot.queryParams[''] || '/' ;
     }
 
     login() {
@@ -35,10 +35,11 @@ export class LoginComponent implements OnInit {
         this.authenticationService.login(this.model.username, this.model.password)
             .subscribe(
                 data => {
-                    this.router.navigate([this.returnUrl]);
+                    
+                    this.router.navigate(['menu']);
                 },
                 error => {
-                    
+                    console.log('error');
                     this.alertService.error(error._body);
                     this.loading = false;
                 });
