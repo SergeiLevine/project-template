@@ -1,6 +1,7 @@
 <!DOCTYPE html5>
 <html>
 		<head>
+
 			<meta charset="utf-8" />
 			<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
 			<script src="js/jquery.js"></script>
@@ -9,15 +10,25 @@
 			<script type = "text/javascript" src="js/index.js"></script>
 		</head>
 		<body>
+        <div class="login-general">
+            <br>
+            <br>
+            <br>
+            
 			<form id="MegilotLoginForm" form method="POST" action="http://96de2cef.ngrok.io/temp.php">
-				<label class="UsernameLabelStyle">Username: </label><br>
-				<input id="InputUsername" class="InputUsernameStyle" name="user"></input>
+			<!--	<label class="UsernameLabelStyle">Username: </label><br> -->
+				<input id="InputUsername" class="InputUsernameStyle" name="user" placeholder="Username"></input>
 				<br>
-				<label class="PasswordLabelStyle">Password: </label><br>
-				<input id="InputPassword" class="InputPasswordStyle" type="password" name="pass"></input>
+                <br>
+                <br>
+                
+			<!--	<label class="PasswordLabelStyle">Password: </label><br> -->
+            
+				<input id="InputPassword" class="InputPasswordStyle" type="password" name="pass" placeholder="Password"></input>
 				<br>
 				<input id="SubmitLogin" class="SubmitLoginStyle" type="submit" value="Login"></input>
+        </div>
 			</form>
-			<input id="showlocation" class="SubmitLoginStyle" type="button" value="show"></input>
+            
 		</body>
 </html>
