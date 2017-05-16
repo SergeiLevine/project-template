@@ -8,6 +8,10 @@ import { Component, OnInit,Input } from '@angular/core';
 export class PathComponent implements OnInit {
   @Input() pathArray;
   
+  printPoint1(){
+    console.log(this.pathArray);
+  }
+
   constructor() { }
 
   ngOnInit() {

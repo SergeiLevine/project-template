@@ -11,7 +11,8 @@
 <!--<app-marker [lng]="lng" [lat]="lat" [name]="'B'" ></app-marker>-->
 <app-marker *ngFor="let k of data" [lng]="k.longitude" [lat]="k.latitude" [name]="k.user"></app-marker>
 <app-marker *ngFor="let k of pathArray" [lng]="getLng(k)" [lat]="getLat(k)" [name]="getUser(k)"></app-marker>
-<app-path></app-path>
+<app-path *ngFor= "let k of pathArray" [pathArray]="createPath(k)" ></app-path>
+
 <sebm-map-polygon *ngFor= "let k of paths" [paths]="k" [editable]="true" [visible]="show" [fillOpacity]="0"></sebm-map-polygon>
 <!--<app-nav-item *ngFor="let k of arr" [item]="k"></app-nav-item>-->
 

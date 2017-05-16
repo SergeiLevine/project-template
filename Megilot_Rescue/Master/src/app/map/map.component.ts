@@ -47,7 +47,6 @@ export class MapComponent implements OnInit {
     /*for (let i of this.paths){
       temp.push(i);
     }*/
-    console.log(this.paths.length);
     if (this.paths.length > 0 && this.paths[this.areaCount - 1] != undefined) {
       console.log(this.paths[this.areaCount - 1]);
       for (let i of this.paths[this.areaCount - 1]) {
