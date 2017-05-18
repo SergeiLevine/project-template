@@ -1,12 +1,12 @@
 <form>
  שם אירוע<br>
-  <input type="text" name="name"><br>
+  <input type="text" name="name"  required [(ngModel)]="name" name="name"><br>
   תיאור אירוע<br>
-  <textarea  name="description" class='description'  rows="4" cols="50"></textarea>
-  <input type="date" name="date">
+  <textarea name="description" class='description'  rows="4" cols="50" required [(ngModel)]="description"></textarea>
   <form action="upload.php" method="post" enctype="multipart/form-data">
   <input type="file" name="fileToUpload" id="fileToUpload">
   <input type="submit" value="Upload Image" name="submit">
 </form>
-<nav><a routerLink ='/map' routerLinkActive="active">Map</a></nav>
+<!--<nav><a routerLink ='/map' routerLinkActive="active">Map</a></nav>-->
+<button (click)="beginEvent()">Begin event</button>
 <router-outlet></router-outlet>

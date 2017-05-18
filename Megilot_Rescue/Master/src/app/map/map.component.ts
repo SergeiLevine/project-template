@@ -5,48 +5,73 @@ import { Http, Response } from '@angular/http';
 import { SebmGoogleMap, SebmGoogleMapPolygon, LatLngLiteral, SebmGoogleMapPolyline, SebmGoogleMapPolylinePoint, }
   from 'angular2-google-maps/core';
 import 'rxjs/Rx';
-import { MarkerService } from './marker.service'
+//import { MarkerService } from './marker.service'
+import { AppConfig } from '../app.config';
+import { Router, ActivatedRoute } from '@angular/router';
+import { eventInfoService } from '../_services/index';
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css'],
-  providers: [MarkerService]
+  providers: [eventInfoService]
 })
 
 export class MapComponent implements OnInit {
-  title: string = 'My first angular2-google-maps project';
+  title: string = '';
   lat: number = 31.7683;
   lng: number = 35.2137;
   areaCount: number = 0;
   drawble: boolean = false;
   drawTex: string ='draw';
-
   realData = [];
   realCords = [];
-  url = 'http://5b889434.ngrok.io/send_data.php';
-  pathArray = [
-    [
+  eventInfo;
+  url = this.config.apiUrl+'/send_data.php';
+  pathArray = [[
       { user: 'A', lat: 30, lng: 30 }, 
       { user: 'A', lat: 31, lng: 31 }, 
       { user: 'A', lat: 32, lng: 32 }
     ],
-    [{ user: 'B', lat: 33, lng: 33 }, { user: 'B', lat: 34, lng: 34 }, { user: 'B', lat: 34, lng: 34 }]];
+      [{ user: 'B', lat: 33, lng: 33 }, 
+      { user: 'B', lat: 34, lng: 34 }, 
+      { user: 'B', lat: 34, lng: 34 }
+    ]];
 
-  /*paths: Array<LatLngLiteral> = [
-    
-   
-  ]*/
+
   paths = [];
 
+   constructor(private http: Http,private config: AppConfig,private route: ActivatedRoute,private router: Router) {
+    for (let k of this.realData) {
+      k.latitude = parseFloat(k.latitude);
+      k.longitude = parseFloat(k.longitude);
+      this.realCords.push(k);
+    }
+    //this.realData = this.realCords;
+    //this.eventInfo={name:s.eventName,desc:s.eventInfo};
+
+
+  }
+  /**Allows the map to be clicked and the drawing of polygons on the map, increments the amont of current polygons by 1 */
+  drawPolygon() {
+    if (this.drawble == false){
+      this.drawTex='Complete'
+      this.areaCount++;
+    }
+    else {
+      this.drawTex='Draw';
+    }
+    this.drawble = !this.drawble;
+  }
+
+  /**map clicked becomes active after the draw button is clicked, pushed the coordinates into an array which 
+   * displays the polyong in the map
+   */
   mapClicked(e) {
     if (this.drawble == false) {
       return;
     }
-    //var temp=this.paths;
+
     var temp = [];
-    /*for (let i of this.paths){
-      temp.push(i);
-    }*/
     if (this.paths.length > 0 && this.paths[this.areaCount - 1] != undefined) {
       console.log(this.paths[this.areaCount - 1]);
       for (let i of this.paths[this.areaCount - 1]) {
@@ -54,12 +79,13 @@ export class MapComponent implements OnInit {
       }
     }
     temp.push({ lat: parseFloat(e.coords.lat), lng: parseFloat(e.coords.lng) });
-    // this.paths=temp;
     this.paths[this.areaCount - 1] = temp;
-    //console.log(this.paths);
   }
-  createPath(k) {
 
+  /**create path function the data from the database to coordinates that will be bound to the path component
+   * displaying the path of each mobile user
+   */
+  createPath(k) {
     var newpath = [];
     var j = 0;
     for (var i = 0; i < k.length; i++) {
@@ -76,9 +102,9 @@ export class MapComponent implements OnInit {
       j++;
 
     }
-    //console.log(newpath);
     return newpath;
   }
+  
 
   getLat(k) {
     return (k[k.length - 1].lat);
@@ -89,67 +115,26 @@ export class MapComponent implements OnInit {
   getUser(k) {
     return (k[k.length - 1].user);
   }
-  drawPolygon(n, l, t) {
-    //var temp={user:String,latitude:String,longitude:String};
-    if (this.drawble == false){
-      this.drawTex='Complete'
-      this.areaCount++;
-    }
-    else {
-      this.drawTex='Draw';
-    }
-    this.drawble = !this.drawble;
-  }
-  toMarker(r) {
-    var marker = {
-      user: r.user,
-      latitude: r.latitude,
-      longitude: r.longitude
-    };
-    return marker;
-
-  }
-
-  constructor(private http: Http) {
-    for (let k of this.realData) {
-      k.latitude = parseFloat(k.latitude);
-      k.longitude = parseFloat(k.longitude);
-      this.realCords.push(k);
-    }
-    this.realData = this.realCords;
-
-
-  }
-
+  
+  
   ngOnInit() {
     this.getData();
-
   }
   _postservice;
   outputs;
+  /**recives current mobile data user from the database */
   getData() {
     this.http.get(this.url).subscribe(res => {
       this.realData = res.json();
       //this.refreshData();
     });
-
   }
 
   get data() {
-    //console.log('in data')
-    var i = 0;
-
     for (let d of this.realData) {
-
       d.longitude = parseFloat(d.longitude);
       d.latitude = parseFloat(d.latitude);
-      //this.pathArray.push({lat:d.latitude,lng:d.longitude});
-
     }
-
-
-
     return this.realData;
   }
-
 }

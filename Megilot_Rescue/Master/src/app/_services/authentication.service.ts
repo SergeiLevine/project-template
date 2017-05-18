@@ -15,7 +15,7 @@ export class AuthenticationService {
         //this.http.post(this.config.apiUrl, { username: username, password: password});
         
         return this.http.post(this.config.apiUrl, {username:user,password:pass}).map((r: Response) => {
-                
+                console.log(r.text());
                 var u=r.json();
                 
                 //console.log(user);

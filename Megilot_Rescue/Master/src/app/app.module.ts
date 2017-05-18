@@ -18,8 +18,8 @@ import { EventMenuComponent } from './event-menu/event-menu.component';
 import { LoginComponent } from './login';
 import { PathComponent } from './path/path.component';
 
-import {MarkerService} from './map/marker.service';
-import { AlertService, AuthenticationService, UserService } from './_services/index';
+import { AlertService, AuthenticationService, UserService,eventInfoService } from './_services/index';
+
 
 import { AuthGuard } from './_guards/auth.guard';
 
@@ -74,7 +74,10 @@ const appRoutes: Routes=[
         AuthGuard,
         AlertService,
         AuthenticationService,
-        UserService],
+        UserService,
+        eventInfoService
+        ],
+        
   bootstrap: [AppComponent]
 })
 export class AppModule { }
