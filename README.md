@@ -37,7 +37,7 @@ This project is developed as part of the requirements for a [software engineerin
 - [Project Inception](https://github.com/SergeiLevine/Rescue/wiki/Project-Inception%5CPlanning-Page)
 
 
-## Please visit our [live application](87f2ef56.ngrok.io/dist/index.html)
+## Please visit our [live application](http://87f2ef56.ngrok.io/dist/index.html)
 - Alright, currently only a landing page...
 
 
