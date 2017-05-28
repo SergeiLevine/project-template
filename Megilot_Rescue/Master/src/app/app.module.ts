@@ -31,12 +31,12 @@ import { AppConfig } from './app.config';
 
 const appRoutes: Routes=[
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
-  {path:'map',component:MapComponent},
-  {path:'menu',component:MainMenuComponent},
-  {path:'event-menu',component:EventMenuComponent},
+  {path:'map',component:MapComponent,canActivate: [AuthGuard] },
+  {path:'menu',component:MainMenuComponent,canActivate: [AuthGuard] },
+  {path:'event-menu',component:EventMenuComponent,canActivate: [AuthGuard] },
   {path: 'login', component: LoginComponent },
 
-    // otherwise redirect to home
+  // otherwise redirect to home
   { path: '**', redirectTo: '' }
 
 ]

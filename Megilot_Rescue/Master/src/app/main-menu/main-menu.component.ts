@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-main-menu',
   templateUrl: './main-menu.component.html',
@@ -7,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainMenuComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private router: Router) { }
+  start(){
+    this.router.navigate(['event-menu']);
+  }
   ngOnInit() {
   }
 

@@ -28,7 +28,8 @@ export class EventMenuComponent implements OnInit {
     this.http.post(this.config.apiUrl+'/eventCreate.php',eventInfo).subscribe((r: Response) => {      
                 //var u=r.json();
                // console.log('event started');
-               if (r.text()=='Event created')
+               /*if (r.text()=='Event created')
+                this.router.navigate(['map']);*/
                 this.router.navigate(['map']);
                 
     });

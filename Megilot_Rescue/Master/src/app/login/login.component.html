@@ -1,4 +1,4 @@
-<div class="col-md-6 col-md-offset-3">
+<!--<div class="col-md-6 col-md-offset-3">
     <h2>Login</h2>
     <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
@@ -17,4 +17,41 @@
             <a [routerLink]="['/register']" class="btn btn-link">Register</a>
         </div>
     </form>
-</div>
+</div>-->
+<head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+</head>
+<div class="logoimage"><img src="logo.jpg" height="450" width="600"></div>
+        <div class="text-center" style="padding:50px 0">
+            <div class="logo">login</div>
+            <!-- Main Form -->
+            <div class="login-form-1">
+                <form id="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate class="text-left">
+                    <div class="login-form-main-message"></div>
+                    <div class="main-login-form">
+                        <div class="login-group">
+                            <div class="form-group">
+                                <label for="lg_username" class="sr-only">Username</label><br>
+                                <input type="text" class="form-control" [(ngModel)]="model.username" #username="ngModel" id="username" name="username" placeholder="username">
+                            </div>
+                            <div class="form-group">
+                                <label for="lg_password" class="sr-only">Password</label>
+                                <br>
+                                <input type="password" [(ngModel)]="model.password" #password="ngModel" required class="form-control" id="password" name="password" placeholder="password">
+    
+                            </div>
+                            <div class="form-group login-group-checkbox">
+                                <input type="checkbox" id="lg_remember" name="lg_remember">
+                                <label for="lg_remember">remember</label>
+                            </div>
+                        </div>
+                        <button type="submit" class="login-button">login<i class="fa fa-chevron-right"></i></button>
+                    </div>
+                    <div class="etc-login-form">
+                        <p>forgot your password? <a href="#">click here</a></p>
+                        <p>new user? <a href=# class="btn btn-link">create new account</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>

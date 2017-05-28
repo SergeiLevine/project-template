@@ -1,12 +1,53 @@
-<form>
+<body dir="rtl">
+<!--<form>
  שם אירוע<br>
-  <input type="text" name="name"  required [(ngModel)]="name" name="name"><br>
+  <input id="name" class="textboxstyle" type="text"  required [(ngModel)]="name" name="name">
+ <br>
   תיאור אירוע<br>
   <textarea name="description" class='description'  rows="4" cols="50" required [(ngModel)]="description"></textarea>
   <form action="upload.php" method="post" enctype="multipart/form-data">
   <input type="file" name="fileToUpload" id="fileToUpload">
   <input type="submit" value="Upload Image" name="submit">
 </form>
-<!--<nav><a routerLink ='/map' routerLinkActive="active">Map</a></nav>-->
-<button (click)="beginEvent()">Begin event</button>
-<router-outlet></router-outlet>
+<button (click)="beginEvent()">החל אירוע</button>
+<router-outlet></router-outlet>-->
+<div id="contact-form">
+	<div>
+		<h1>לוח אירועים</h1>
+        <br>
+	</div>
+		<p id="failure">Oopsie...message not sent.</p>  
+		<p id="success">Your message was sent successfully. Thank you!</p>
+
+		   <form method="post" action="/">
+			<div>
+		      <label for="name">
+		      	<span class="required">שם האירוע:</span> 
+		      	<input type="text" id="name" [(ngModel)]="name" name="name" value="" required="required" tabindex="1" autofocus="autofocus" />
+		      </label> 
+			</div>
+			<div>		          
+		      <label for="subject">
+		     <span class="required">מיקום האירוע:</span>
+			      <select id="subject" name="subject" tabindex="4">   
+			         <option value="quote">מקומות מוגדרים מראש</option>   
+			         <option value="hello">Product Price Question</option>
+                     <option value="quote">Where are my dragons?!</option>  
+			         <option value="general">- I want balls - </option>
+			      </select>
+		      </label>
+			</div>
+			<div>		          
+		      <label for="description">
+		      	<span class="required">תיאור אירוע:</span> 
+		      	<textarea id="description" name="description" placeholder="כתוב כאן!" tabindex="5" required="required"></textarea> 
+		      </label>
+              <input type="file" name="fileToUpload" id="fileToUpload">    
+			</div>
+			<div>		           
+		      <button name="submit" (click)="beginEvent()" type="submit" id="submit">Submit</button> 
+			</div>
+		   </form>
+
+	</div>
+<body dir="rtl">

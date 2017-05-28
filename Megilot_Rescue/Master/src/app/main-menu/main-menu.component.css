@@ -1,3 +1,22 @@
-button {
-   
+.button{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    /*display: inline-block;*/
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    float: left;
+}
+
+.button:hover {
+    background-color: #3e8e41;
+}
+
+.button a{
+    text-decoration: none;
+    color: white;
 }

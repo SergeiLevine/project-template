@@ -113,7 +113,7 @@ export class MapComponent implements OnInit {
     return (k[k.length - 1].lng);
   }
   getUser(k) {
-    return (k[k.length - 1].user);
+    return (k[k.length - 1].user_name);
   }
   
   
@@ -125,15 +125,17 @@ export class MapComponent implements OnInit {
   /**recives current mobile data user from the database */
   getData() {
     this.http.get(this.url).subscribe(res => {
-      this.realData = res.json();
-      //this.refreshData();
+      //if (res.json()!='No participants yet')
+        this.realData = res.json();
     });
-  }
 
+  }
   get data() {
     for (let d of this.realData) {
-      d.longitude = parseFloat(d.longitude);
-      d.latitude = parseFloat(d.latitude);
+      for(let k of d){
+        k.longitude = parseFloat(k.longitude);
+        k.latitude = parseFloat(k.latitude);
+      }
     }
     return this.realData;
   }
