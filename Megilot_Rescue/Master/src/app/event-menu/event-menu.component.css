@@ -73,7 +73,7 @@ h1 {
    width:100%;
    border:none;
    background:#991D57;
-   background-image:linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
+   /*background-image:linear-gradient(bottom, #8C1C50 0%, #991D57 52%);*/
    background-image:-moz-linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
    background-image:-webkit-linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
    color:#FFF;
@@ -82,7 +82,7 @@ h1 {
    border-radius:5px;
 }
 #contact-form button[type="submit"]:hover {
-   background-image:linear-gradient(bottom, #9C215A 0%, #A82767 52%);
+  /* background-image:linear-gradient(bottom, #9C215A 0%, #A82767 52%);*/
    background-image:-moz-linear-gradient(bottom, #9C215A 0%, #A82767 52%);
    background-image:-webkit-linear-gradient(bottom, #9C215A 0%, #A82767 52%);
    -webkit-transition:background 0.3s ease-in-out;

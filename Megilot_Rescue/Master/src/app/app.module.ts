@@ -23,6 +23,7 @@ import { AlertService, AuthenticationService, UserService,eventInfoService } fro
 
 import { AuthGuard } from './_guards/auth.guard';
 
+import { FileSelectDirective, FileDropDirective, FileUploader } from 'ng2-file-upload/ng2-file-upload';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import {ImageUploadModule} from 'angular2-image-upload';
 

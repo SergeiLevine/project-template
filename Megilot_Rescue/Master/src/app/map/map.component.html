@@ -1,6 +1,7 @@
 
 <!-- this creates a google map on the page with the given lat/lng from -->
 <!-- the component as the initial center of the map:-->
+<image-upload [url]="'http://87f2ef56.ngrok.io/imgUpload.php'"></image-upload>
 <button>סיים אירוע</button>
 <button (click)="drawPolygon()">{{drawTex}}</button>
 <sebm-google-map [styles]="satellite" [latitude]="lat" [longitude]="lng" [streetViewControl]="true"
