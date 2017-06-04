@@ -11,6 +11,9 @@ export class MainMenuComponent implements OnInit {
   start(){
     this.router.navigate(['event-menu']);
   }
+  inquire(){
+    this.router.navigate(['inquiry']);
+  }
   ngOnInit() {
   }
 

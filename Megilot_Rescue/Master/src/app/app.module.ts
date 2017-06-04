@@ -17,6 +17,8 @@ import { MainMenuComponent } from './main-menu/main-menu.component';
 import { EventMenuComponent } from './event-menu/event-menu.component';
 import { LoginComponent } from './login';
 import { PathComponent } from './path/path.component';
+import { InquiryComponent } from './inquiry/inquiry.component';
+
 
 import { AlertService, AuthenticationService, UserService,eventInfoService } from './_services/index';
 
@@ -26,6 +28,7 @@ import { AuthGuard } from './_guards/auth.guard';
 import { FileSelectDirective, FileDropDirective, FileUploader } from 'ng2-file-upload/ng2-file-upload';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import {ImageUploadModule} from 'angular2-image-upload';
+import { DatepickerModule } from 'angular2-material-datepicker';
 
 import { AppConfig } from './app.config';
 
@@ -35,8 +38,8 @@ const appRoutes: Routes=[
   {path:'map',component:MapComponent,canActivate: [AuthGuard] },
   {path:'menu',component:MainMenuComponent,canActivate: [AuthGuard] },
   {path:'event-menu',component:EventMenuComponent,canActivate: [AuthGuard] },
+  {path:'inquiry',component:InquiryComponent,canActivate: [AuthGuard] },
   {path: 'login', component: LoginComponent },
-
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 
@@ -58,8 +61,10 @@ const appRoutes: Routes=[
     LoginComponent,
     AlertComponent,
     HomeComponent,
+    InquiryComponent,
   ],
   imports: [
+    DatepickerModule,
     RouterModule.forRoot(appRoutes),
     ImageUploadModule.forRoot(),
     BrowserModule,
