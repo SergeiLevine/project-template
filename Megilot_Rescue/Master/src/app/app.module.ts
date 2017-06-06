@@ -20,7 +20,7 @@ import { PathComponent } from './path/path.component';
 import { InquiryComponent } from './inquiry/inquiry.component';
 
 
-import { AlertService, AuthenticationService, UserService,eventInfoService } from './_services/index';
+import { AlertService, AuthenticationService, UserService,eventInfoService } from './/index';
 
 
 import { AuthGuard } from './_guards/auth.guard';

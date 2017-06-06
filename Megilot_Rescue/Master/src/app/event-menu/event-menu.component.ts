@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppConfig } from '../app.config';
 import { Http, Headers, Response } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
-import { eventInfoService } from '../_services/index';
+import { eventInfoService } from '../index';
 import { FileSelectDirective, FileDropDirective, FileUploader } from 'ng2-file-upload';
 
 @Component({

@@ -8,7 +8,7 @@ import 'rxjs/Rx';
 //import { MarkerService } from './marker.service'
 import { AppConfig } from '../app.config';
 import { Router, ActivatedRoute } from '@angular/router';
-import { eventInfoService } from '../_services/index';
+import { eventInfoService } from '../index';
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
