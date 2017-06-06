@@ -1,15 +1,7 @@
-body {
-  background: #efefef;
-  padding: 110px;
-    margin-top: -60px;
-  font-family: 'Varela Round';
-  font-size: 25px;
-}
-
 .logoimage{
     position: absolute;
-    margin-top: 40px;
-    margin-left: 600px;
+    margin-top: 60px;
+    margin-left: 700px;
     box-shadow: 5px 5px 2px #888888;
 }
 /*=== 2. Anchor Link ===*/
@@ -31,11 +23,15 @@ a:hover {
 }
 /*=== 4. Main Form ===*/
 .login-form-1 {
+  margin-left: 90px;
+  margin-top: 60px;
   width: 400px;
   border-radius: 5px;
   display: inline-block;
 }
 .main-login-form {
+  
+    font-size: 25px;
   position: relative;
 }
 .login-form-1 .form-control {
@@ -66,7 +62,7 @@ a:hover {
   border-bottom: 0;
 }
 .login-group {
-  background: #ffffff;
+  background: whitesmoke;
   color: #999999;
   border-radius: 8px;
   padding: 10px 20px;
@@ -84,7 +80,7 @@ a:hover {
   padding: 11px 0;
   width: 50px;
   height: 50px;
-  margin-top: -25px;
+  margin-top: -15px;
   border: 5px solid #efefef;
   border-radius: 50%;
   transition: all ease-in-out 500ms;
@@ -268,8 +264,9 @@ label:hover:before {
 /*=== 9. Misc ===*/
 .logo {
   padding: 15px 0;
-margin-left: 50px;
-  font-size: 40px;
+  margin-left: 150px;
+  margin-top: 20px;
+  font-size: 60px;
     font-family: "Arial Black", Gadget, sans-serif;
   color: dimgrey;
   font-weight: bold;
