@@ -10,6 +10,8 @@ import { AppConfig } from '../app.config';
 import { Router, ActivatedRoute } from '@angular/router';
 import { eventInfoService } from '../services/index';
 import { DirectionsMapDirective } from '../directions-map.directive'
+
+
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+
 import { AlertService, AuthenticationService } from '../services/index';
 
 @Component({
@@ -7,6 +8,7 @@ import { AlertService, AuthenticationService } from '../services/index';
     moduleId: module.id,
     templateUrl: 'login.component.html',
     styleUrls: ['./login.component.css']
+
 })
 
 export class LoginComponent implements OnInit {
