@@ -26,3 +26,5 @@ describe('InquiryComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+

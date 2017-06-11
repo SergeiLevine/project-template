@@ -1,10 +1,4 @@
-/* General Styles */
-html{
-   background:url(http://phutora.com/img/friends3.jpg) no-repeat;
-   background-size: cover;
-   height:100%;
-   background-color: #efefef;
-}
+
 * {
    box-sizing:border-box;
    -webkit-box-sizing:border-box;
@@ -16,6 +10,8 @@ html{
    text-rendering:optimizeLegibility;
 }
 body {
+
+    text-align: center;
    color: #C0C0C0;
    font-family: Arial, san-serif;
 }
@@ -29,9 +25,10 @@ h1 {
 #contact-form {
    background-color:rgba(72,72,72,0.7);
    padding: 10px 20px 30px 20px;
+   
    max-width:100%;
    float: right;
-   left: 50%;
+   left: 55%;
    position: absolute;
    margin-top:30px;
    margin-left: -240px;
