@@ -1,16 +1,5 @@
 <body dir="rtl">
-<!--<form>
- שם אירוע<br>
-  <input id="name" class="textboxstyle" type="text"  required [(ngModel)]="name" name="name">
- <br>
-  תיאור אירוע<br>
-  <textarea name="description" class='description'  rows="4" cols="50" required [(ngModel)]="description"></textarea>
-  <form action="upload.php" method="post" enctype="multipart/form-data">
-  <input type="file" name="fileToUpload" id="fileToUpload">
-  <input type="submit" value="Upload Image" name="submit">
-</form>
-<button (click)="beginEvent()">החל אירוע</button>
-<router-outlet></router-outlet>-->
+
 <div id="contact-form">
 	<div>
 		<h1>לוח אירועים</h1>
@@ -38,7 +27,7 @@
 		      	<span class="required">תיאור אירוע:</span> 
 		      	<textarea id="description" name="description" placeholder="כתוב כאן!" tabindex="5" required="required"></textarea> 
 		      </label>
-              <!--<input type="file" name="fileToUpload" id="fileToUpload">-->
+              <image-upload [url]="url" ></image-upload>
 		  
 		  
 			</div>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppConfig } from '../app.config';
 import { Http, Headers, Response } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
-import { eventInfoService } from '../_services/index';
+import { eventInfoService } from '../services/index';
 import { FileSelectDirective, FileDropDirective, FileUploader } from 'ng2-file-upload';
 
 @Component({
@@ -21,6 +21,7 @@ export class EventMenuComponent implements OnInit {
   name:String;
   description:String;
   date:Date;
+  url=this.config.apiUrl+'/imgUpload.php';
   /*Begin event function posts data from the form to the server and routs to the map screen if succesful*/
   beginEvent(){
 
@@ -29,6 +30,7 @@ export class EventMenuComponent implements OnInit {
       description:this.description
     };
     console.log(eventInfo.name);
+    this.router.navigate(['map']);
     this.http.post(this.config.apiUrl+'/eventCreate.php',eventInfo).subscribe((r: Response) => {      
                 //var u=r.json();
                // console.log('event started');

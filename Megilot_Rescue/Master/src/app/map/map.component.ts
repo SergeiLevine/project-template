@@ -2,18 +2,19 @@ import { Component, OnInit, Injectable, Pipe, PipeTransform } from '@angular/cor
 import { Observable } from 'rxjs/Observable';
 import { AnonymousSubscription } from "rxjs/Subscription";
 import { Http, Response } from '@angular/http';
-import { SebmGoogleMap, SebmGoogleMapPolygon, LatLngLiteral, SebmGoogleMapPolyline, SebmGoogleMapPolylinePoint, }
+import { SebmGoogleMap, SebmGoogleMapPolygon, LatLngLiteral, SebmGoogleMapPolyline, SebmGoogleMapPolylinePoint, GoogleMapsAPIWrapper }
   from 'angular2-google-maps/core';
 import 'rxjs/Rx';
 //import { MarkerService } from './marker.service'
 import { AppConfig } from '../app.config';
 import { Router, ActivatedRoute } from '@angular/router';
-import { eventInfoService } from '../_services/index';
+import { eventInfoService } from '../services/index';
+import { DirectionsMapDirective } from '../directions-map.directive'
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css'],
-  providers: [eventInfoService]
+  providers: [eventInfoService,GoogleMapsAPIWrapper]
 })
 
 export class MapComponent implements OnInit {
@@ -25,8 +26,12 @@ export class MapComponent implements OnInit {
   drawTex: string ='draw';
   realData = [];
   realCords = [];
-  eventInfo;
+  eventInfo=[];
   url = this.config.apiUrl+'/send_data.php';
+  latA=30;
+  latB=31;
+  lngA=30;
+  lngB=31;
   pathArray = [[
       { user: 'A', lat: 30, lng: 30 }, 
       { user: 'A', lat: 31, lng: 31 }, 
@@ -36,8 +41,12 @@ export class MapComponent implements OnInit {
       { user: 'B', lat: 34, lng: 34 }, 
       { user: 'B', lat: 34, lng: 34 }
     ]];
+    routes=[];
 
+    origin = { longitude:31.7683, lattitude: 35.2137 };  // its a example aleatory position
+    destination = { longitude: 31.7690, lattitude: 35.2227 };  // its a example aleatory position
 
+ 
   paths = [];
 
    constructor(private http: Http,private config: AppConfig,private route: ActivatedRoute,private router: Router) {
@@ -96,7 +105,6 @@ export class MapComponent implements OnInit {
       else {
         n = ({ lat1: k[j - 1].lat, lat2: k[j].lat, lng1: k[j - 1].lng, lng2: k[j].lng });
       }
-
       newpath[j] = n;
 
       j++;
@@ -119,6 +127,10 @@ export class MapComponent implements OnInit {
   
   ngOnInit() {
     this.getData();
+    
+    /*for (let k of this.pathArray)
+      this.routes.push(this.createPath(k));
+    console.log(this.routes);*/
   }
   _postservice;
   outputs;

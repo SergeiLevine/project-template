@@ -13,6 +13,7 @@ export class PolylineComponent implements OnInit {
   constructor() { }
  
   ngOnInit() {
+    console.log(this.lat1);
   }
 
 }

@@ -2,7 +2,7 @@
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 
 import { AppConfig } from '../app.config';
-import { User } from '../_models/index';
+import { User } from '../models/index';
 
 @Injectable()
 export class UserService {

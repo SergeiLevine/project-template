@@ -20,10 +20,10 @@ import { PathComponent } from './path/path.component';
 import { InquiryComponent } from './inquiry/inquiry.component';
 
 
-import { AlertService, AuthenticationService, UserService,eventInfoService } from './_services/index';
+import { AlertService, AuthenticationService, UserService,eventInfoService } from './services/index';
 
 
-import { AuthGuard } from './_guards/auth.guard';
+import { AuthGuard } from './guards/auth.guard';
 
 import { FileSelectDirective, FileDropDirective, FileUploader } from 'ng2-file-upload/ng2-file-upload';
 import { AgmCoreModule } from 'angular2-google-maps/core';
@@ -31,10 +31,11 @@ import {ImageUploadModule} from 'angular2-image-upload';
 import { DatepickerModule } from 'angular2-material-datepicker';
 
 import { AppConfig } from './app.config';
+import { DirectionsMapDirective } from './directions-map.directive';
 
 
 const appRoutes: Routes=[
-  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: '', component: MainMenuComponent, canActivate: [AuthGuard] },
   {path:'map',component:MapComponent,canActivate: [AuthGuard] },
   {path:'menu',component:MainMenuComponent,canActivate: [AuthGuard] },
   {path:'event-menu',component:EventMenuComponent,canActivate: [AuthGuard] },
@@ -62,6 +63,7 @@ const appRoutes: Routes=[
     AlertComponent,
     HomeComponent,
     InquiryComponent,
+    DirectionsMapDirective,
   ],
   imports: [
     DatepickerModule,
@@ -72,6 +74,7 @@ const appRoutes: Routes=[
     HttpModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB6ptPv5Nl8UksFWczSmloxpjuKXzD_7-M'
+      
     })
 
   ],

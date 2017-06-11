@@ -17,18 +17,14 @@ export class AuthenticationService {
         return this.http.post(this.config.apiUrl, {username:user,password:pass}).map((r: Response) => {
                 console.log(r.text());
                 var u=r.json();
-                
                 //console.log(user);
                 if (u == 'admin logged in') {
                     console.log('logged in')
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
                     localStorage.setItem('currentUser', JSON.stringify(user));
                 }
-                
          });
-
     }
-
     logout() {
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser');

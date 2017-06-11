@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AlertService, AuthenticationService } from '../_services/index';
+import { AlertService, AuthenticationService } from '../services/index';
 
 @Component({
     selector: 'app-login',
     moduleId: module.id,
-    templateUrl: 'login.component.html'
+    templateUrl: 'login.component.html',
+    styleUrls: ['./login.component.css']
 })
 
 export class LoginComponent implements OnInit {
@@ -30,11 +31,11 @@ export class LoginComponent implements OnInit {
 
     login() {
         this.loading = true;
-        
+
+
         this.authenticationService.login(this.model.username, this.model.password)
             .subscribe(
-                data => {
-                    
+                data => { 
                     this.router.navigate(['menu']);
                 },
                 error => {
