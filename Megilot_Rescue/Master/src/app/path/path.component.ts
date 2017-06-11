@@ -9,10 +9,11 @@ export class PathComponent implements OnInit {
   @Input() pathArray;
  
 
-  constructor() { }
+  constructor() { console.log('created path');}
 
   ngOnInit() {
-    console.log(this.pathArray)
+    for (let k of this.pathArray)
+      console.log(k.lat1);
   }
 
 }

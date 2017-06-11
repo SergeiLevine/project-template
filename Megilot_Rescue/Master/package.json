@@ -12,6 +12,7 @@
   },
   "private": true,
   "dependencies": {
+
     "@angular/common": "^4.2.0-rc.2",
     "@angular/compiler": "^4.2.0-rc.2",
     "@angular/core": "^4.2.0-rc.2",
@@ -25,10 +26,11 @@
     "angular2-image-upload": "^0.6.0",
     "angular2-material-datepicker": "^0.5.0",
     "core-js": "^2.4.1",
+    "karma-chrome-launcher": "^2.1.1",
     "ng2-file-upload": "^1.2.1",
-    "rxjs": "^5.0.1",
+    "rxjs": "^5.4.0",
     "ts-helpers": "^1.1.1",
-    "zone.js": "^0.7.2"
+    "zone.js": "^0.7.8"
   },
   "devDependencies": {
     "@angular/cli": "^1.1.0",
