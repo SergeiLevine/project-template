@@ -13,3 +13,5 @@ export class InquiryComponent implements OnInit {
   }
 
 }
+
+
