@@ -1,40 +1,43 @@
 <body dir="rtl">
 
-<div id="contact-form">
-	<div>
-		<h1>לוח אירועים</h1>
-        <br>
-	</div>
-		<p id="failure">Oopsie...message not sent.</p>  
+	<div id="contact-form">
+		<div>
+			<h1>לוח אירועים</h1>
+			<br>
+		</div>
+		<p id="failure">Oopsie...message not sent.</p>
 		<p id="success">Your message was sent successfully. Thank you!</p>
-		   <form method="post" action="/">
+		<form method="post" action="/">
 			<div>
-		      <label for="name">
+				<label for="name">
 		      	<span class="required">שם האירוע:</span> 
 		      	<input type="text" id="name" [(ngModel)]="name" name="name" value="" required="required" tabindex="1" autofocus="autofocus" />
-		      </label> 
+		      </label>
 			</div>
-			<div>		          
-		      <label for="subject">
+			<div>
+				<label for="subject">
 		     <span class="required">מיקום האירוע:</span>
 			      <select id="subject" name="subject" tabindex="4">   
 			         <option value="quote">מקומות מוגדרים מראש</option>   
 			      </select>
 		      </label>
 			</div>
-			<div>		          
-		      <label for="description">
+			<div>
+				<label for="description">
 		      	<span class="required">תיאור אירוע:</span> 
 		      	<textarea id="description" name="description" placeholder="כתוב כאן!" tabindex="5" required="required"></textarea> 
 		      </label>
-              <image-upload [url]="url" ></image-upload>
-		  
-		  
+				<!-- <image-upload [url]="url" (onFileUploadFinish)="imageUploaded($event)"></image-upload>-->
+
+				<!--<input type="file" (change)="fileChange($event)" placeholder="Upload file" >
+			<button></button>
+			<p-fileUpload name="myfile[]" url="url"></p-fileUpload>-->
 			</div>
-			<div>		           
-		      <button name="submit" (click)="beginEvent()" type="submit" id="submit">Submit</button> 
+			<div>
+				<button name="submit" (click)="beginEvent()" type="submit" id="submit">Submit</button>
 			</div>
-		   </form>
+		</form>
 
 	</div>
-<body dir="rtl">
+
+	<body dir="rtl">

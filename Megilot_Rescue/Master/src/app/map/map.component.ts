@@ -1,7 +1,7 @@
 import { Component, OnInit, Injectable, Pipe, PipeTransform } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { AnonymousSubscription } from "rxjs/Subscription";
-import { Http, Response } from '@angular/http';
+import { Http, Response, RequestOptions, URLSearchParams } from '@angular/http';
 import { SebmGoogleMap, SebmGoogleMapPolygon, LatLngLiteral, SebmGoogleMapPolyline, SebmGoogleMapPolylinePoint, GoogleMapsAPIWrapper }
   from 'angular2-google-maps/core';
 import 'rxjs/Rx';
@@ -16,7 +16,7 @@ import { DirectionsMapDirective } from '../directions-map.directive'
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css'],
-  providers: [eventInfoService,GoogleMapsAPIWrapper]
+  providers: [eventInfoService, GoogleMapsAPIWrapper]
 })
 
 export class MapComponent implements OnInit {
@@ -25,33 +25,33 @@ export class MapComponent implements OnInit {
   lng: number = 35.2137;
   areaCount: number = 0;
   drawble: boolean = false;
-  drawTex: string ='draw';
+  drawTex: string = 'draw';
   realData = [];
   realCords = [];
-  eventInfo=[];
-  url = this.config.apiUrl+'/send_data.php';
-  latA=30;
-  latB=31;
-  lngA=30;
-  lngB=31;
+  eventInfo = [];
+  url = this.config.apiUrl + '/send_data.php';
+  latA = 30;
+  latB = 31;
+  lngA = 30;
+  lngB = 31;
   pathArray = [[
-      { user: 'A', lat: 30, lng: 30 }, 
-      { user: 'A', lat: 31, lng: 31 }, 
-      { user: 'A', lat: 32, lng: 32 }
-    ],
-      [{ user: 'B', lat: 33, lng: 33 }, 
-      { user: 'B', lat: 34, lng: 34 }, 
-      { user: 'B', lat: 34, lng: 34 }
-    ]];
-    routes=[];
+    { user: 'A', lat: 30, lng: 30 },
+    { user: 'A', lat: 31, lng: 31 },
+    { user: 'A', lat: 32, lng: 32 }
+  ],
+  [{ user: 'B', lat: 33, lng: 33 },
+  { user: 'B', lat: 34, lng: 34 },
+  { user: 'B', lat: 34, lng: 34 }
+  ]];
+  routes = [];
 
-    origin = { longitude:31.7683, lattitude: 35.2137 };  // its a example aleatory position
-    destination = { longitude: 31.7690, lattitude: 35.2227 };  // its a example aleatory position
+  origin = { longitude: 31.7683, lattitude: 35.2137 };  // its a example aleatory position
+  destination = { longitude: 31.7690, lattitude: 35.2227 };  // its a example aleatory position
 
- 
+
   paths = [];
 
-   constructor(private http: Http,private config: AppConfig,private route: ActivatedRoute,private router: Router) {
+  constructor(private http: Http, private config: AppConfig, private route: ActivatedRoute, private router: Router) {
     for (let k of this.realData) {
       k.latitude = parseFloat(k.latitude);
       k.longitude = parseFloat(k.longitude);
@@ -64,12 +64,12 @@ export class MapComponent implements OnInit {
   }
   /**Allows the map to be clicked and the drawing of polygons on the map, increments the amont of current polygons by 1 */
   drawPolygon() {
-    if (this.drawble == false){
-      this.drawTex='Complete'
+    if (this.drawble == false) {
+      this.drawTex = 'Complete'
       this.areaCount++;
     }
     else {
-      this.drawTex='Draw';
+      this.drawTex = 'Draw';
     }
     this.drawble = !this.drawble;
   }
@@ -114,43 +114,64 @@ export class MapComponent implements OnInit {
     }
     return newpath;
   }
-  
+
 
   getLat(k) {
+    if (k == undefined)
+      return;
     return (k[k.length - 1].lat);
   }
   getLng(k) {
+    if (k == undefined)
+      return;
     return (k[k.length - 1].lng);
   }
   getUser(k) {
+    if (k == undefined)
+      return;
     return (k[k.length - 1].user_name);
   }
-  
-  
+
+
   ngOnInit() {
     this.getData();
-    
+
     /*for (let k of this.pathArray)
       this.routes.push(this.createPath(k));
     console.log(this.routes);*/
   }
-  _postservice;
-  outputs;
   /**recives current mobile data user from the database */
   getData() {
     this.http.get(this.url).subscribe(res => {
       //if (res.json()!='No participants yet')
-        this.realData = res.json();
-    });
+      console.log(res);
+      this.realData = res.json();
+    }
+
+    );
 
   }
   get data() {
+
+
+    this.http.get(this.url).subscribe(res => {
+      console.log(res);
+      this.realData = res.json();
+    }
+    );
+
     for (let d of this.realData) {
-      for(let k of d){
+      if (d == undefined)
+        break;
+      console.log(d);
+      for (let k of d) {
+        if (k == undefined)
+          break;
         k.longitude = parseFloat(k.longitude);
         k.latitude = parseFloat(k.latitude);
       }
     }
+    console.log(this.realData);
     return this.realData;
   }
 }

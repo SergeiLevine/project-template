@@ -30,6 +30,7 @@ import { FileSelectDirective, FileDropDirective, FileUploader } from 'ng2-file-u
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import {ImageUploadModule} from 'angular2-image-upload';
 import { DatepickerModule } from 'angular2-material-datepicker';
+//import {FileUploadModule} from 'primeng/primeng';
 
 import { AppConfig } from './app.config';
 import { DirectionsMapDirective } from './directions-map.directive';
@@ -70,6 +71,7 @@ const appRoutes: Routes=[
     DatepickerModule,
     RouterModule.forRoot(appRoutes),
     ImageUploadModule.forRoot(),
+    //FileUploadModule,
     BrowserModule,
     FormsModule,
     HttpModule,

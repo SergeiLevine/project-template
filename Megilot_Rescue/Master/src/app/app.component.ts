@@ -7,16 +7,5 @@ import { Component,Input} from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
-  /*auth=false;
-  eventStarted=false;
-  logout(){
-    this.auth=!this.auth;
-  }
-  startEvent(){
 
-  }
-  login(event){
-    console.log("Login succesful");
-    this.auth=true;
-  }*/
 }
