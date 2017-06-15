@@ -34,6 +34,7 @@ import { DatepickerModule } from 'angular2-material-datepicker';
 
 import { AppConfig } from './app.config';
 import { DirectionsMapDirective } from './directions-map.directive';
+import { InquiryMapComponent } from './inquiry-map/inquiry-map.component';
 
 
 const appRoutes: Routes=[
@@ -42,6 +43,7 @@ const appRoutes: Routes=[
   {path:'menu',component:MainMenuComponent,canActivate: [AuthGuard] },
   {path:'event-menu',component:EventMenuComponent,canActivate: [AuthGuard] },
   {path:'inquiry',component:InquiryComponent,canActivate: [AuthGuard] },
+  {path:'inquiry-map',component:InquiryMapComponent,canActivate:[AuthGuard]},
   {path: 'login', component: LoginComponent },
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
@@ -66,6 +68,7 @@ const appRoutes: Routes=[
     HomeComponent,
     InquiryComponent,
     DirectionsMapDirective,
+    InquiryMapComponent,
   ],
   imports: [
     DatepickerModule,

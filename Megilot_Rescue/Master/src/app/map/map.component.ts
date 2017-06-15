@@ -119,22 +119,28 @@ export class MapComponent implements OnInit {
   getLat(k) {
     if (k == undefined)
       return;
-    return (k[k.length - 1].lat);
+    var t=k;
+    //console.log(t);
+    return (t[t.length - 1].latitude);
   }
   getLng(k) {
     if (k == undefined)
       return;
-    return (k[k.length - 1].lng);
+    var t=k;
+    //console.log(t); 
+    return (t[t.length - 1].longitude);
   }
   getUser(k) {
     if (k == undefined)
       return;
-    return (k[k.length - 1].user_name);
+    var t=k;
+    //console.log(t);  
+    return (t[t.length - 1].user_name);
   }
 
 
   ngOnInit() {
-    this.getData();
+    //this.getData();
 
     /*for (let k of this.pathArray)
       this.routes.push(this.createPath(k));
@@ -143,30 +149,32 @@ export class MapComponent implements OnInit {
   /**recives current mobile data user from the database */
   getData() {
     this.http.get(this.url).subscribe(res => {
-      //if (res.json()!='No participants yet')
+      //console.log(res);
+      if (res.json()=='No participants yet'){
+        console.log("no participants yet");
+        return;
+      }
       console.log(res);
       this.realData = res.json();
     }
-
     );
 
   }
   get data() {
-
-
     this.http.get(this.url).subscribe(res => {
-      console.log(res);
+      if (res.json()=='No participants yet'){
+        //console.log("no participants yet");
+        return;
+      }
+      //console.log(res);
       this.realData = res.json();
     }
     );
-
+    setTimeout(1000);
+    //console.log(this.realData);
     for (let d of this.realData) {
-      if (d == undefined)
-        break;
-      console.log(d);
+      //console.log(d);
       for (let k of d) {
-        if (k == undefined)
-          break;
         k.longitude = parseFloat(k.longitude);
         k.latitude = parseFloat(k.latitude);
       }
