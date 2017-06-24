@@ -24,7 +24,7 @@ Our goal is to track the coordiantes of the volnteers in the field and provide a
 | Group Chat | [![Join the chat at https://gitter.im/jce-il/project-template](https://badges.gitter.im/jce-il/project-template.svg)](https://gitter.im/Megilot-Rescue/Lobby#) |
 | Github Issues | [![GitHub issues](https://img.shields.io/badge/issues-5-yellow.svg)](https://github.com/SergeiLevine/Rescue/issues) |
 | Contributors | [![GitHub contributors](https://img.shields.io/badge/contributors-6-blue.svg)](https://github.com/SergeiLevine/Rescue/graphs/contributors) |
-| Build Status (CI) |  [![Build Status](https://travis-ci.org/yeseg11/Let-it-know.svg?branch=master)](https://travis-ci.org/yeseg11/Let-it-know) |
+| Build Status (CI) |  [![Build Status](https://travis-ci.org/jce-il/project-template.svg?branch=master)](https://travis-ci.org/jce-il/project-template) |
 
 
 
