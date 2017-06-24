@@ -19,18 +19,15 @@ Our goal is to track the coordiantes of the volnteers in the field and provide a
 
 |Category|Status|
 |---|---|
-| Version Control System| git & github |
+| Version Control System| [git](https://git-scm.com/) & [github](https://github.com/) |
 | Recommended IDE | [VSCode](https://code.visualstudio.com) |
 | Group Chat | [![Join the chat at https://gitter.im/jce-il/project-template](https://badges.gitter.im/jce-il/project-template.svg)](https://gitter.im/Megilot-Rescue/Lobby#) |
 | Github Issues | [![GitHub issues](https://img.shields.io/badge/issues-5-yellow.svg)](https://github.com/SergeiLevine/Rescue/issues) |
 | Contributors | [![GitHub contributors](https://img.shields.io/badge/contributors-6-blue.svg)](https://github.com/SergeiLevine/Rescue/graphs/contributors) |
-
-
-
-| Version Control System| [git](https://git-scm.com/) & [github](https://github.com/) |
-| Recommended IDE | [VSCode](https://code.visualstudio.com) |
-| Group Chat | [![Join the chat at https://gitter.im/jce-il/project-template](https://badges.gitter.im/jce-il/project-template.svg)](https://gitter.im/Let-it-know/Lobby) |
 | Build Status (CI) |  [![Build Status](https://travis-ci.org/yeseg11/Let-it-know.svg?branch=master)](https://travis-ci.org/yeseg11/Let-it-know) |
+
+
+
 | Dependencies | [![David](https://img.shields.io/david/dev/idleberg/vscode-badges.svg?style=flat-square)](https://david-dm.org/yeseg11/Let-it-know?type=dev) |
 | License | [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/) |
 | Test Coverege | [![codecov.io](https://codecov.io/github/yeseg11/Let-it-know/coverage.svg?branch=master)](https://codecov.io/githubyeseg11/Let-it-know?branch=master) |
