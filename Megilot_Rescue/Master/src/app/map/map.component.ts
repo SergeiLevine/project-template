@@ -16,6 +16,7 @@ import { DirectionsMapDirective } from '../directions-map.directive'
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css'],
+  //template: 'Ticks (every second) : {{ticks}}',
   providers: [eventInfoService, GoogleMapsAPIWrapper]
 })
 
@@ -34,6 +35,7 @@ export class MapComponent implements OnInit {
   latB = 31;
   lngA = 30;
   lngB = 31;
+  ticks = 0;
   pathArray = [[
     { user: 'A', lat: 30, lng: 30 },
     { user: 'A', lat: 31, lng: 31 },
@@ -119,67 +121,58 @@ export class MapComponent implements OnInit {
   getLat(k) {
     if (k == undefined)
       return;
-    var t=k;
+    var t = k;
     //console.log(t);
     return (t[t.length - 1].latitude);
   }
   getLng(k) {
     if (k == undefined)
       return;
-    var t=k;
+    var t = k;
     //console.log(t); 
     return (t[t.length - 1].longitude);
   }
   getUser(k) {
     if (k == undefined)
       return;
-    var t=k;
+    var t = k;
     //console.log(t);  
     return (t[t.length - 1].user_name);
   }
 
 
   ngOnInit() {
-    //this.getData();
+    let timer = Observable.timer(2000, 10000);
+    timer.subscribe(t => {
+      this.getData();
+    });
 
-    /*for (let k of this.pathArray)
-      this.routes.push(this.createPath(k));
-    console.log(this.routes);*/
   }
   /**recives current mobile data user from the database */
   getData() {
     this.http.get(this.url).subscribe(res => {
       //console.log(res);
-      if (res.json()=='No participants yet'){
+      if (res.json() == 'No participants yet') {
         console.log("no participants yet");
         return;
       }
       console.log(res);
       this.realData = res.json();
+      for (let d of this.realData) {
+        //console.log(d);
+        if (d.length == 0)
+          return;
+        for (let k of d) {
+          k.longitude = parseFloat(k.longitude);
+          k.latitude = parseFloat(k.latitude);
+        }
+      }
     }
     );
 
   }
+
   get data() {
-    this.http.get(this.url).subscribe(res => {
-      if (res.json()=='No participants yet'){
-        //console.log("no participants yet");
-        return;
-      }
-      //console.log(res);
-      this.realData = res.json();
-    }
-    );
-    setTimeout(1000);
-    //console.log(this.realData);
-    for (let d of this.realData) {
-      //console.log(d);
-      for (let k of d) {
-        k.longitude = parseFloat(k.longitude);
-        k.latitude = parseFloat(k.latitude);
-      }
-    }
-    console.log(this.realData);
     return this.realData;
   }
 }

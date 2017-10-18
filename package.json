@@ -18,5 +18,8 @@
   "homepage": "https://github.com/jce-il/project-template#readme",
   "dependencies": {
     "bootstrap": "^3.3.7"
+  },
+  "devDependencies": {
+    "@angular/cli": "^1.1.2"
   }
 }

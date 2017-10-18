@@ -12,7 +12,7 @@
  
   <!--<app-marker *ngFor="let k of data" [lng]="k.longitude" [lat]="k.latitude" [name]="k.user"></app-marker>-->
   <!--<app-marker *ngFor="let k of realData" [lng]="getLng(k)" [lat]="getLat(k)" [name]="getUser(k)"></app-marker>-->
-  <!--<sebm-google-map-marker *ngFor="let k of data" [latitude]="getLat(k)" [longitude]="getLng(k)" [label]="getUser(k)"></sebm-google-map-marker>-->
+  <sebm-google-map-marker  ng-model-options='{ debounce: 1000 }' *ngFor="let k of data" [latitude]="getLat(k)" [longitude]="getLng(k)" [label]="getUser(k)"></sebm-google-map-marker>
   <sebm-map-polygon *ngFor="let k of paths" [paths]="k" [editable]="true" [visible]="show" [fillOpacity]="0"></sebm-map-polygon>
   <!--<app-nav-item *ngFor="let k of arr" [item]="k"></app-nav-item>-->
 

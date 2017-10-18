@@ -30,11 +30,14 @@ import { FileSelectDirective, FileDropDirective, FileUploader } from 'ng2-file-u
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import {ImageUploadModule} from 'angular2-image-upload';
 import { DatepickerModule } from 'angular2-material-datepicker';
+import { Ng2TableModule } from 'ng2-table/ng2-table';
+
 //import {FileUploadModule} from 'primeng/primeng';
 
 import { AppConfig } from './app.config';
 import { DirectionsMapDirective } from './directions-map.directive';
 import { InquiryMapComponent } from './inquiry-map/inquiry-map.component';
+import { JoinEventComponent } from './join-event/join-event.component';
 
 
 const appRoutes: Routes=[
@@ -44,7 +47,9 @@ const appRoutes: Routes=[
   {path:'event-menu',component:EventMenuComponent,canActivate: [AuthGuard] },
   {path:'inquiry',component:InquiryComponent,canActivate: [AuthGuard] },
   {path:'inquiry-map',component:InquiryMapComponent,canActivate:[AuthGuard]},
+  {path:'join-event,',component:JoinEventComponent,canActivate:[AuthGuard]},
   {path: 'login', component: LoginComponent },
+
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 
@@ -69,12 +74,13 @@ const appRoutes: Routes=[
     InquiryComponent,
     DirectionsMapDirective,
     InquiryMapComponent,
+    JoinEventComponent,
   ],
   imports: [
     DatepickerModule,
     RouterModule.forRoot(appRoutes),
     ImageUploadModule.forRoot(),
-    //FileUploadModule,
+    Ng2TableModule,
     BrowserModule,
     FormsModule,
     HttpModule,

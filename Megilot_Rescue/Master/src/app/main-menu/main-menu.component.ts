@@ -14,6 +14,9 @@ export class MainMenuComponent implements OnInit {
   inquire(){
     this.router.navigate(['inquiry']);
   }
+  join(){
+    this.router.navigate(['join-event']);
+  }
   ngOnInit() {
   }
 

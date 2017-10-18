@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Http, Response, RequestOptions, URLSearchParams } from '@angular/http';
+import { AppConfig } from '../app.config';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-inquiry-map',
@@ -8,7 +11,12 @@ import { Component, OnInit } from '@angular/core';
 export class InquiryMapComponent implements OnInit {
   lat: number = 31.7683;
   lng: number = 35.2137;
-  constructor() { }
+  url=this.config.apiUrl;
+  paths=[];
+  constructor(private http: Http, 
+  private config: AppConfig, 
+  private route: ActivatedRoute, 
+  private router: Router) { }
 
   ngOnInit() {
     

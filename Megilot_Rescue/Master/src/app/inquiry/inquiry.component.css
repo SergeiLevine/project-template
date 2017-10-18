@@ -158,7 +158,6 @@ h1 {
   background-image: url('https://i.imgur.com/RkA9MBo.png');
 }
 
-
 #keywords tbody tr { 
   color: #555;
 }
@@ -168,4 +167,7 @@ h1 {
 }
 #keywords tbody tr td.lalign {
   text-align: right;
+}
+.sebm-google-map-container {
+  height:750px;
 }

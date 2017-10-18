@@ -1,0 +1,30 @@
+
+<body dir="rtl">
+ <div id="wrapper">
+  <h1>תחקור אירועים</h1>
+  
+  <table id="keywords" cellspacing="0" cellpadding="0">
+    <thead>
+      <tr>
+        <th><span>מספר</span></th>
+        <th><span>שם</span></th>
+        <th><span>תאריך</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let k of currentEvents" (click)="setSelected(k)">
+        <td class="lalign"> {{k.id}}</td>
+        <td>{{k.name}}</td>
+        <td>{{k.date}}</td>
+      </tr>
+      
+      
+    </tbody>
+  </table>
+
+</div>
+
+  <div class="buttons">
+        <button class="button1" (click)="search()">חפש</button>
+  </div>
+</body>
